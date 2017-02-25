@@ -1,5 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
+const OUT_PATH = path.resolve('./build');
+// Used with webpack-dev-server
+const PUBLIC_PATH = '/assets/';
+const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
@@ -10,24 +15,21 @@ module.exports = {
   },
 
   output: {
+    path: OUT_PATH,
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, './dist/assets'),
-    publicPath: '/assets',
+    publicPath: PUBLIC_PATH,
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader?cacheDirectory=true',
-        query: {
+        options: {
           presets: ['es2015'],
         },
-      },
-    ],
-    rules: [
-      {
+      }, {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       }, {
@@ -43,12 +45,19 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.bundle.js',
-    }),
-  ],
+  plugins:
+    IS_PROD ? [
+      new NgAnnotatePlugin({
+        add: true,
+        // other ng-annotate options here
+      }),
+    ] : [
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.bundle.js',
+      }),
+
+    ],
 
   devServer: {
     contentBase: path.resolve(__dirname, './src'),

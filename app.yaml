@@ -1,0 +1,33 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: src/index.html
+  upload: src/index.html
+
+- url: /assets/(.*)
+  static_files: build/\1
+  upload: build/(.*)
+
+- url: /(.*)
+  static_files: src/\1
+  upload: src/(.*)
+
+skip_files:
+- ^(.*/)?.*/test/.*$
+- ^(.*/)?.*/templates/.*$
+- ^(.*/)?.*/node_modules/.*$
+- ^(.*/)?.*/coverage/.*$
+
+- ^(test/.*)
+- ^(templates/.*)
+- ^(node_modules/.*)
+
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.DS_Store$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
