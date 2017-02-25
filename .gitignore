@@ -1,0 +1,10 @@
+node_modules/
+bower_components/
+coverage/
+.DS_Store
+.sass-cache/
+.idea/
+.tmp/
+*.pyc
+dist/
+!.gitkeep
