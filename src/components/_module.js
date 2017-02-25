@@ -1,7 +1,7 @@
 /**
  * Components module
  */
-import { MaterialSectionDirective } from './material-section/directives/MaterialSectionDirective';
+import {MaterialSectionDirective} from './material-section/directives/MaterialSectionDirective';
 
 
 export default angular.module('myMaterialSeed.components', [])

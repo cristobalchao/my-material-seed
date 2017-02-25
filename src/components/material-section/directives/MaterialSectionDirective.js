@@ -1,6 +1,6 @@
-import { MaterialSectionController } from '../controllers/MaterialSectionController';
+import {MaterialSectionController} from '../controllers/MaterialSectionController';
 
-//Directive definition for the MaterialSection component.
+// Directive definition for the MaterialSection component.
 export function MaterialSectionDirective() {
   'ngInject';
 
@@ -11,6 +11,6 @@ export function MaterialSectionDirective() {
     templateUrl: 'components/material-section/tmpl/material-section.html',
     bindToController: true,
     controllerAs: '$materialSection',
-    controller: MaterialSectionController
+    controller: MaterialSectionController,
   };
 };

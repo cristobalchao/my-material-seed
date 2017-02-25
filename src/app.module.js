@@ -16,5 +16,5 @@ export default angular
       'ngResource',
       Main.name,
       Configurations.name,
-      Components.name
+      Components.name,
    ]);

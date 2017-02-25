@@ -6,7 +6,7 @@ class Routes {
         templateUrl: 'main/tmpl/main.html',
         controller: 'MainController',
         controllerAs: 'main',
-        reloadOnSearch: false
+        reloadOnSearch: false,
       })
       .otherwise({redirectTo: '/'});
   }

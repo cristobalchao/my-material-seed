@@ -3,9 +3,10 @@ const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
+
   entry: {
     app: './app.module.js',
-    vendor: './vendor.module.js'
+    vendor: './vendor.module.js',
   },
 
   output: {
@@ -21,37 +22,35 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader?cacheDirectory=true',
         query: {
-          presets: ['es2015']
-        }
-      }
+          presets: ['es2015'],
+        },
+      },
     ],
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader'],
       }, {
         test: /\.scss$/,
         use: [{
-            loader: "style-loader" // creates style nodes from JS strings
+            loader: 'style-loader', // creates style nodes from JS strings
         }, {
-            loader: "css-loader" // translates CSS into CommonJS
+            loader: 'css-loader', // translates CSS into CommonJS
         }, {
-            loader: "sass-loader" // compiles Sass to CSS
-        }]
-      }
-    ]
+            loader: 'sass-loader', // compiles SASS to CSS
+        }],
+      },
+    ],
   },
 
   plugins: [
-
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      filename: "vendor.bundle.js"
-    })
-
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+    }),
   ],
 
   devServer: {
-    contentBase: path.resolve(__dirname, './src'),  // New
+    contentBase: path.resolve(__dirname, './src'),
   },
 };
