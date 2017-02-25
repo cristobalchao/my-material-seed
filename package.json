@@ -1,8 +1,8 @@
 {
-  "name": "my-webpack2-angular-sass-seed",
+  "name": "my-material-seed",
   "config" : {
     "port" : "3000",
-    "gcloud": "google.com:my-webpack2-angular-sass-seed"
+    "gcloud": "my-material-seed"
   },
   "version": "1.0.0",
   "description": "",
