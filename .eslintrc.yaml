@@ -6,7 +6,12 @@ env:
 parserOptions:
   ecmaVersion: 2015
   sourceType: module
+plugins:
+  - angular
 rules:
+  angular/controller_name: 0
+  angular/controller-as: 2
+  angular/directive-name: [2,"ct"]
   max-len: [error, 120]
   no-new: warn
   quotes: [error, single, {"avoidEscape": true}]
