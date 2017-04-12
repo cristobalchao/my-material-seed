@@ -9,6 +9,8 @@ const IS_PROD = process.env.NODE_ENV === 'production';
 module.exports = {
   context: path.resolve(__dirname, './src'),
 
+  watch: true,
+
   entry: {
     app: './app.module.js',
     vendor: './vendor.module.js',
